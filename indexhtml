@@ -1,4 +1,3 @@
-const char MAIN_page[] PROGMEM = R"=====(
 <HTML>
 	<HEAD>
 			<TITLE>MyRemote</TITLE>
@@ -275,4 +274,3 @@ const char MAIN_page[] PROGMEM = R"=====(
         </script>
     </BODY>
 </HTML>
-)=====";

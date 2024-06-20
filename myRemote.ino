@@ -73,12 +73,21 @@ void setup(void){
   Serial.print("IP address: ");
   Serial.println(WiFi.localIP());
 
-  server.on("/", handleRoot);
-  server.on("/record", handleRecord);
-  server.on("/volumeup",   handle_Denon_VolumeUp);
-  server.on("/volumedown", handle_Denon_VolumeDown);
-  server.on("/wakeup",     handle_Denon_Wakeup);
-  server.on("/standby",    handle_Denon_Standby);
+  server.on("/",          handleRoot);
+  server.on("/record",    handleRecord);
+  server.on("/denon/volumeup",       handle_Denon_VolumeUp);
+  server.on("/denon/volumedown",     handle_Denon_VolumeDown);
+  server.on("/denon/mute",           handle_Denon_mute);
+  server.on("/denon/wakeup",         handle_Denon_Wakeup);
+  server.on("/denon/standby",        handle_Denon_Standby);
+  server.on("/denon/channel/phono",  handle_Denon_changeChannel_phono);
+  server.on("/denon/channel/cd",     handle_Denon_changeChannel_cd);
+  server.on("/denon/channel/tuner",  handle_Denon_changeChannel_tuner);
+  server.on("/denon/channel/dvdvdp", handle_Denon_changeChannel_dvd_vdp);
+  server.on("/denon/channel/tvdbs",  handle_Denon_changeChannel_tv_dbs);
+  server.on("/denon/channel/vcrone", handle_Denon_changeChannel_vcr_one);
+  server.on("/denon/channel/vcrtwo", handle_Denon_changeChannel_vcr_two);
+  server.on("/denon/channel/vaux",   handle_Denon_changeChannel_v_aux);
   server.onNotFound(handleNotFound);
 
   server.begin();
